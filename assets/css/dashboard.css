@@ -1,0 +1,974 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5px;
+    scroll-behavior: smooth;
+}
+
+.text-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: #1b9ce3;
+    text-decoration: none;
+}
+
+.btn-sidebar {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #303030;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    display: none;
+}
+
+.btn-sidebar.animate {
+    animation: spin 0.5s linear infinite;
+}
+
+.btn-sidebar i {
+    font-size: 18px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    color: #fff;
+    background-color: #131313; /*0b031c*/
+    transition: all ease 0.4s;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar ul li.active {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: #fff;
+    border-right: 3px solid #0e0224;
+}
+
+.sidebar ul li.active .text-link {
+    color: #0b031c;
+}
+
+.sidebar .text-link {
+    color: rgba(126, 126, 126, 0.933);
+    font-weight: 600 !important;
+}
+
+.content {
+    position: relative;
+    width: calc(100% - 250px);
+    height: 100vh;
+    background-color: #0d0c0f;
+    overflow-x: hidden;
+    float: right;
+}
+
+.trending-banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.trending-banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    position: relative;
+}
+
+.trending-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background-color: #0e0224;
+    opacity: 0.5;
+    z-index: 9;
+}
+
+.trending-banner-text {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    padding: 10px;
+    color: #fff;
+    z-index: 999;
+}
+
+.trending-banner-text .btn-play-trending {
+    width: 250px;
+    height: 60px;
+    margin-top: 30px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    transition: all 0.4s;
+}
+
+.trending-banner-text .btn-play-trending i {
+    font-size: 22px;
+}
+
+.trending-banner-text .btn-play-trending:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.top-producers {
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+    background-color: #131313;
+}
+
+.top-producers .row>*, .genres .row>* {
+    padding-right: calc(var(--bs-gutter-x) * .1) !important;
+    padding-left: calc(var(--bs-gutter-x) * .1) !important;
+}
+
+.top-producers .card {
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #303030;
+}
+
+.top-producers .card img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.top-producers .producer-name {
+    position: absolute;
+    bottom: -200%;
+    width: 100%;
+    height: 100%;
+    height :max-content;
+    color: rgba(255, 255, 255, 0.622);
+    background-color: #131313a6;
+    transition: all 0.5s;
+}
+
+.top-producers .card:hover .producer-name {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+
+.top-producers .btn-visit-profile {
+    font-size: 10px;
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: transparent;
+}
+
+.genres {
+    width: 100%;
+    color: #fff;
+    background-color: #131313;
+}
+
+.genres .card {
+    background-color: transparent;
+    height: 150px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.genres .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+}
+
+.genre-name {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.98);
+    background-color: #1313138c;
+}
+
+.top-beats {
+    width: 100%;
+    color: #fff;
+    background-color: #131313;
+}
+
+.top-beats .profile img {
+    border-radius: 10px;
+    width: 80px;
+}
+
+.top-beats .card h5 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.top-beats .beat-name small {
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.top-beats .card {
+    background-color: #303030;    
+}
+
+.top-beats .form-control {
+    color: #fff;
+    border: 2px solid #303030;
+    background-color: transparent;
+}
+
+.top-beats .actions button {
+    font-size: 35px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.play-music {
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(to bottom, #303030, #151515);
+}
+
+.play-music .music-image img {
+    border-radius: 10px;
+    width: 250px;
+}
+
+.play-music .music-details p {
+    font-size: 10px;
+}
+
+.play-music .music-actions button {
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    background-color: transparent;
+}
+
+.top-producer-banner {
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+}
+
+.top-producer-banner .card {
+    background-color: transparent;
+}
+
+.top-producer-banner .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #131313;
+    opacity: 0.4;
+}
+
+.top-producer-banner .card img {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.top-producer-banner-text {
+    top: 0;
+    position: absolute;
+    z-index: 999;
+}
+
+.top-producer-banner .carousel-control-next {
+    right: -50px;
+    z-index: 999;
+}
+
+.top-producer-banner .carousel-control-prev {
+    left: -50px;
+    z-index: 999;
+}
+
+.our-producers {
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+}
+
+.our-producers .card {
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+}
+
+.our-producers .card img {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.our-producers .card::after  {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #151515;
+    opacity: 0.2;
+    z-index: 99;
+    border-radius: 10px;
+}
+
+.producer-profile-banner {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+    position: relative;
+    overflow: hidden;
+}
+
+.producer-profile-banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #131313;
+    opacity: 0.4;
+}
+
+.producer-profile-banner .banner-image img {
+    position: absolute;
+    width: 100%;
+    background-position: center;
+    transform: translate(0%,-30%);
+}
+
+.producer-banner {
+    position: relative;
+}
+
+.profile-container {
+    position: absolute;
+    left: 30px;
+    bottom: -80px;
+}
+
+.producer-banner .profile-image {
+    border: 3px solid #fff; 
+    border-radius: 50%;
+    padding: 2px;
+    z-index: 999;
+    overflow: auto;
+}
+
+.producer-banner .profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.producer-banner .profile-name {
+    color: #fff;
+}
+
+.about-producer {
+    color: #fff;
+    position: relative;
+    top: 150px;
+}
+
+.about-producer .card {
+    background-color: #131313;
+}
+
+.about-producer .card .icon {
+    margin-top: 2px;
+}
+
+.about-producer .profile img {
+    border-radius: 10px;
+    width: 100px;
+}
+
+.about-producer .beat-name small {
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.about-producer .actions button {
+    font-size: 35px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.top-beats-banner {
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+}
+
+.top-beats-banner .card {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.top-beats-banner .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #131313;
+    opacity: 0.4;
+}
+
+.top-beats-banner .card img {
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.top-beats-banner-text {
+    top: 0;
+    position: absolute;
+    z-index: 999;
+}
+
+.top-beats-banner .carousel-control-next {
+    right: -50px;
+    z-index: 999;
+}
+
+.top-beats-banner .carousel-control-prev {
+    left: -50px;
+    z-index: 999;
+}
+
+.all-music {
+    color: #fff;
+}
+
+.all-music .card {
+    background-color: #303030;
+}
+
+.all-music .form-control {
+    color: #fff;
+    border: none;
+    background-color: #303030;
+}
+
+.all-music .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.all-music .btn-search-music {
+    border: 0;
+    border-radius: 3px;
+    color: #000;
+    background-color: #fff;
+    padding: 5px 10px 5px 10px;
+}
+
+.all-music .profile img {
+    border-radius: 10px;
+    width: 50px;
+}
+
+.all-music .beat-name small {
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.all-music .actions button {
+    font-size: 35px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.all-genres {
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+}
+
+.all-genres .row>* {
+    padding-right: calc(var(--bs-gutter-x) * .2) !important;
+    padding-left: calc(var(--bs-gutter-x) * .2) !important;
+}
+
+.all-genres .card.music {
+    width: 100%;
+    background-color: #303030 !important;
+    padding: 0;
+    cursor: pointer;
+}
+
+.all-genres .form-control {
+    border: none;
+    background-color: #303030;
+}
+
+.all-genres .card {
+    padding: 20px;
+}
+
+.all-genres .profile img {
+    border-radius: 10px;
+    width: 50px;
+}
+
+.all-genres .beat-name small {
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.all-genres .actions button {
+    font-size: 35px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.profile__ {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #131313;
+    position: relative;
+}
+
+.profile-banner {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #303030;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #131313;
+    opacity: 0.4;
+}
+
+.profile-banner img {
+    position: absolute;
+    width: 100%;
+    background-position: center;
+    transform: translate(0%,-30%);
+}
+
+.profile-content .profile-image {
+    position: absolute;
+    bottom: -80px;
+    left: 30px;
+}
+
+.profile-content .profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    padding: 3px;
+}
+
+.profile-content .edit-profile-image {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+}
+
+.profile-content {
+    position: relative;
+    margin-bottom: 150px;
+}
+
+.profile-banner .actions {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    z-index: 9999;
+}
+
+.profile-banner .btn-edit-banner {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    background-color: #1b9ce3;
+}
+
+.view-profile .card {
+    background-color: #303030;    
+}
+
+.view-profile .card .form-control {
+    color: #fff;
+    border: 2px solid #303030;
+    background-color: transparent;
+}
+
+.about-content {
+   position: relative;
+}
+
+.about-content label {
+    font-size: 12px;
+    margin: 20px 0 10px 0;
+}
+
+.about-content .form-control {
+    color: #fff;
+    border: 2px solid #303030;
+    background-color: transparent;
+}
+
+.about-content textarea {
+    resize: none;
+}
+
+.about-content .btn-update-profile , .btn-upload-music {
+    border: none;
+    color: #fff;
+    padding: 10px 20px 10px 20px;
+    background-color: #1b9ce3;
+}
+
+.about-content .profile img {
+    border-radius: 10px;
+    width: 100px;
+    position: relative;
+}
+
+.about-content .beat-name {
+    width: 120px;
+}
+
+.about-content .beat-name small {
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+}
+
+.about-content .card {
+    background-color: #303030;    
+}
+
+.about-content .audio-player audio {
+    border-radius: 0px !important;
+}
+
+.about-content .actions .btn-play {
+    font-size: 35px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+}
+
+.modal-edit-banner .modal-content {
+    color: #fff;
+    background-color: #151515 !important;
+}
+
+.ap_container {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+	position: relative;
+	overflow: hidden;
+	padding: 5px;
+	background: rgba(245, 236, 242);
+	border-radius: 4px;
+	transition: all 1s;
+}
+.ap_controls {
+	width: 100%;
+    display:  flex;
+	position: relative;
+    flex-direction: row;
+	font-size: large;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	cursor: pointer;
+	
+}
+
+.ap_controls span {
+	margin: 5px;
+	display: inline-block;
+}
+.ap_container .playpausebtn {
+    border-radius: 50%;
+    font-size: larger;
+}
+
+.ap_container  svg {
+    width: 25px;
+	height: 25px;
+}
+.ap_controls .duration {
+	width: 80%;
+	margin-right: 10px;
+	bottom: 4px;
+
+}
+.ap_controls input[type="range"] {
+	-webkit-appearance: none;
+	width: 100%;
+	outline: none;
+	height: 2px;
+	margin: 0 15px;
+	background: cyan;
+}
+.ap_controls:hover input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background: darkturquoise;
+}
+.ap_controls input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	height: 0px;
+	
+}
+
+.ap_sound {
+	padding: 4px;
+}
+.ap_time {
+	margin: 4px;
+}
+
+@media(min-width: 320px) and (max-width: 768px) {
+
+    .btn-sidebar {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+        transform: translateX(-100%);
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .trending-banner-text .btn-play-trending {
+        width: 100%;
+    }
+
+    .top-beats .beat-name p {
+        font-size: 12px;
+    }
+
+    .top-beats .beat-name small {
+        font-size: 10px;
+    }
+
+    .top-beats .actions {
+        display: none;
+    }
+
+    .top-producers .card img {
+        width: 300px;
+        height: 150px;
+    }
+
+    .all-music .beat-name p {
+        font-size: 12px;
+    }
+
+    .all-music .beat-name small {
+        font-size: 10px;
+    }
+
+    .all-music .actions {
+        display: none;
+    }
+
+    .parent-select .beat-name p {
+        font-size: 12px;
+    }
+
+    .parent-select .beat-name small {
+        font-size: 10px;
+    }
+
+    .parent-select .actions {
+        display: none;
+    }
+
+    .profile-banner {
+        height: 200px;
+    }
+
+    .profile-banner img {
+        height: 100%;
+        transform: none;
+    }
+
+    .profile-container {
+        position: absolute;
+        width: 100%;
+        top: 120px;
+        left: 0;
+    }
+
+    .profile-content .profile-image {
+        bottom: -80px;
+        left: 10px;
+        width: 100%;
+        margin: auto !important;
+    }
+
+    .profile-content .profile-image img {
+        width: 80px;
+        height: 80px;
+        margin: auto !important;
+    }
+
+    .profile-content .profile-image h1 {
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    .profile-banner .actions {
+        display: none;
+    }
+
+    .about-content .beat-name p {
+        font-size: 12px;
+    }
+
+    .about-content .beat-name small {
+        font-size: 10px;
+    }
+
+    .about-content .actions {
+        display: none;
+    }
+
+    .nav {
+        display: block;
+    }
+
+    .nav-pills .nav-link, .nav-pills {
+        width: 100% !important;
+    }
+
+    .producer-profile-banner {
+        height: 200px;
+    }
+
+    .producer-profile-banner img {
+        height: 100%;
+        transform: none;
+    }
+
+    .profile-container .profile-image {
+        bottom: -200px !important;
+        left: 10px;
+        width: 100%;
+        border: none;
+        border-radius: 0%;
+        margin: auto !important;
+    }
+
+    .producer-profile-banner .banner-image img {
+        transform: none;
+    }
+
+    .profile-container .profile-image img {
+        width: 150px;
+        height: 150px;
+        padding: 2px;
+        border: 3px solid #fff;
+        margin: auto !important;
+    }
+
+    .profile-container .profile-image h1 {
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    .about-producer .beat-name p {
+        font-size: 12px;
+    }
+
+    .about-producer .beat-name small {
+        font-size: 10px;
+    }
+
+    .about-producer .actions {
+        display: none;
+    }
+
+}
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}

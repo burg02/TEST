@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    scroll-behavior: smooth;
+}
+
+.navbar-nav .nav-link,.navbar-brand {
+    padding: 0;
+    font-weight: 500;
+    color: #fff;
+}
+
+.nav-item.active {
+    border-bottom: 2px solid #fff;
+}
+
+.nav-div {
+    color: #dedede;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: transparent;
+}
+
+.bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-overlay img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0.1;
+    overflow: hidden !important;
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 0 15px 0 15px;
+    height: 40px;
+    color: #fff;
+    border: 2px solid #34134d;
+    background-color: #0f0d19;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    color: #fff !important;
+    background: linear-gradient(270deg, #0f0d19 0%, #372444 100%);
+    overflow: hidden !important;
+}
+
+.text-link {
+    text-decoration: none;
+}
+
+.text-overlay {
+    padding: 0 10px 0 10px;
+    font-weight: 800;
+    background-color: #9e35f1;
+    border-radius: 5px;
+}
+
+.main-banner-text {
+    z-index: 9;
+}
+
+.main-banner-text h1 {
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 75px;
+}
+
+.sub-banner-text h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.sub-banner-text h6 {
+    font-weight: 600;
+}
+
+.btn-explore {
+    width: 180px;
+    height: 60px;
+    border: 2px solid #9e35f1;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 800;
+    background-color: transparent;
+    animation: bordercolor 7s linear infinite;
+    transition: all 0.4s;
+}
+
+.home .content {
+    position: relative;
+    overflow-y: hidden !important;
+    z-index: 9;
+}
+
+.banner-actions .text-link {
+    color: rgba(255, 255, 255, 0.482);
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.scroll-icon {
+    animation: animate-up-down 2s linear infinite;
+}
+
+.section-title {
+    text-align: center;
+    font-weight: 800;
+}
+
+@keyframes bordercolor{
+    0%{border-color: blueviolet}
+    20%{border-color: darkorange}
+    40%{border-color: chartreuse}
+    60%{border-color: deepskyblue}
+    80%{border-color: yellow}
+    100%{border-color: blueviolet}
+}
+
+@keyframes animate-up-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.card {
+    height: 520px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #fff;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    overflow: hidden
+}
+
+.card .backgroundEffect {
+    bottom: 0;
+    height: 0px;
+    width: 100%
+}
+
+.card:hover {
+    color: #fff;
+    transform: scale(1.025);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
+}
+
+.card:hover .backgroundEffect {
+    bottom: 0;
+    height: 320px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background: #34134d;
+    animation: popBackground 0.3s ease-in
+}
+
+@keyframes popBackground {
+    0% {
+        height: 20px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%
+    }
+
+    50% {
+        height: 80px;
+        border-top-left-radius: 75%;
+        border-top-right-radius: 75%
+    }
+
+    75% {
+        height: 160px;
+        border-top-left-radius: 85%;
+        border-top-right-radius: 85%
+    }
+
+    100% {
+        height: 320px;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%
+    }
+}
+
+.card .pic {
+    position: relative
+}
+
+.card .pic img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover
+}
+
+.card .date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 70px;
+    background-color: #1b9ce3;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    transition: all ease
+}
+
+.card .date .day {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card .date .month,
+.card .date .year {
+    font-size: 10px
+}
+
+.card .text-muted {
+    font-size: 12px
+}
+
+.card:hover .text-muted {
+    color: #fff !important
+}
+
+.card .content {
+    padding: 0 20px
+}
+
+.card .content .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+    background-color: #34134d;
+    border-radius: 25px;
+    font-size: 12px;
+    border: none
+}
+
+.card:hover .content .btn {
+    background: #fff;
+    color: #34134d;
+    box-shadow: #0000001a 0px 3px 5px
+}
+
+.card .content .btn .fas {
+    font-size: 10px;
+    padding-left: 5px
+}
+
+.card .content .foot .admin {
+    color: #1b9ce3;
+    font-size: 12px
+}
+
+.card:hover .content .foot .admin {
+    color: #fff
+}
+
+.card .content .foot .icon {
+    font-size: 12px
+}
+
+footer {
+    color: #fff;
+    background-color: #0f0d19;
+}
+
+footer .text-link {
+    color: #dedede;
+}
+
+.social-links i {
+    font-size: 20px;
+    color: #000;
+}
+
+.social-links ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #dedede;
+    border-radius: 50%;
+}
+
+.social-links .dropdown-toggle i {
+    color: #fff;
+}
+
+.social-links .dropdown-toggle span {
+    font-size: 12px;
+}
+
+#sign-in .form-control {
+    height: 60px;
+    padding: 0 20px 0 20px;
+    border-radius: 30px;
+}
+
+#sign-in .btn-login {
+    height: 60px;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 30px;
+    background-color: #34134d;
+}
+
+#sign-in .btn-cancel-login {
+    height: 60px;
+    width: 100%;
+    color: #34134d;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 2px solid #34134d;
+    background-color: transparent;
+}
+
+#sign-up .form-control, #sign-up .form-select {
+    height: 60px;
+    padding: 0 20px 0 20px;
+    border-radius: 30px;
+}
+
+#sign-up .btn-login {
+    height: 60px;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 30px;
+    background-color: #34134d;
+}
+
+#sign-up .btn-cancel-login {
+    height: 60px;
+    width: 100%;
+    color: #34134d;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 2px solid #34134d;
+    background-color: transparent;
+}
